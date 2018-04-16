@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script>
+    "use strict";
+
+    var keys = [];
+    $(document).keydown(function(event){
+        console.log(event.keyCode);
+        keys.push(event.keyCode);
+        if(keys.join('') === '687365786913'){
+            alert("Please login Diane")
+            $('body').css('background-color','blue');
+        }
+        if(event.keyCode===13){
+            keys=[];
+        }
+    });
+</script>
+</body>
+</html>
