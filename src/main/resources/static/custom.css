@@ -1,0 +1,45 @@
+img{
+    width: 100%;
+}
+
+
+/******************************          CLASSES  ********************/
+
+.pull-left{
+    margin-left: 8px;
+}
+.navbar-nav {
+    width: 100%;
+    text-align: center;
+}
+.navbar-nav > li {
+    float: none;
+    display: inline-block;
+}
+.navbar-nav > li>  a{
+    padding-top: 0px;
+}
+
+footer > .container{
+    font-size: .8vw;
+}
+
+.blogPost{
+    width: 25%;
+    height: 300px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+/*********          IDS       ****************/
+
+#navbar_white{
+    background-color: white;
+}
+#navbar_hr{
+    border-top: solid black 2px;
+    margin: 20px 5% 0 5%;
+}
+#mainTitle{
+    /*font-family: ;*/
+}

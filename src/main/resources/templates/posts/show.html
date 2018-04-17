@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Single Post')"></head>
+<body>
+<h1>This is the page for post number <span th:text="${post.getId()}"></span>!</h1>
+<div class="blogPost">
+    <h2 th:text="${post.getTitle()}"></h2>
+    <p th:text="${post.getBody()}"></p>
+</div>
+</body>
+</html>
