@@ -8,6 +8,9 @@ public class Post {
     private String body;
     private Date created_on;
 
+    public Post() {
+    }
+
     public Post(long id, String title, String body, Date created_on) {
         this.id = id;
         this.title = title;

@@ -20,11 +20,20 @@ public class PostService {
         posts.add(new Post(3,"Today","It is wednesday and I had to go on base today!"));
     }
 
-        public Post singlePost(int index){
-            return posts.get(index-1) ;
+        public Post singlePost(long index){
+            return posts.get((int) index-1) ;
         }
 
         public List<Post> allPosts(){
             return posts;
+        }
+        public void save(Post post){
+            post.setId(this.posts.size()+1);
+            this.posts.add(post);
+        }
+
+        public void edit(Post post){
+        this.posts.remove((int)post.getId()-1);
+        this.posts.add((int)post.getId()-1,post);
         }
 }

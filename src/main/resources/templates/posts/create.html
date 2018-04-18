@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Home Page')"> </head>
+<body>
+
+
+<div th:if="${editPost}">
+    <form th:action="@{/posts/edit}" th:method="post" th:object="${editPost}">
+        Title:
+        <input type="text" th:field="*{title}" th:value="${editPost.getTitle()}"/> <br />
+        Body:
+        <input type="text" th:field="*{body}" th:value="${editPost.getBody()}"/> <br />
+        <input type="hidden" th:field="*{id}" th:value="${editPost.getId()}"/>
+        <input type="submit" />
+    </form>
+</div>
+
+<div th:if="!${editPost}">
+<form th:action="@{/posts/create}" th:method="post" th:object="${post}">
+    Title:
+    <input type="text" th:field="*{title}"/> <br />
+    Body:
+    <input type="text" th:field="*{body}"/> <br />
+    <input type="submit" />
+</form>
+</div>
+</body>
+</html>
