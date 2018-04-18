@@ -1,31 +1,29 @@
 package com.codeup.blog.controllers;
 
-import com.codeup.blog.models.Post;
+import com.codeup.blog.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class PostController {
 
+    private PostService postSvc;
+
+    public PostController(PostService postSvc) {
+        this.postSvc = postSvc;
+    }
+
     @GetMapping("/posts")
     public String posts(Model model){
-        List<Post> posts = new ArrayList<>();
-        posts.add(new Post(1,"Some Post","this is something about something that i wrote"));
-        posts.add(new Post(2,"Somewhere Post","this is something about something that i wrote when i was in somewhere"));
-        model.addAttribute("posts",posts);
-//  return "This would return the Posts Index page";
+        model.addAttribute("posts",postSvc.allPosts());
         return "posts/index";
     }
 
     @GetMapping("/posts/{id}")
-    public String posts(@PathVariable long id, Model model){
-        Post post = new Post(id, "First Post","Welcome to my first blog site; i hope you enjoy it!");
-        model.addAttribute("post", post);
-        //        return "Page for post id: " + id;
+    public String posts(@PathVariable int id, Model model){
+        model.addAttribute("post", postSvc.singlePost(id));
         return "posts/show";
     }
 

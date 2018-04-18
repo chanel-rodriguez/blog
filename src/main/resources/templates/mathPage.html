@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Math Page')"> </head>
+<body>
+<div th:replace="partials/navbar :: navbar"></div>
+<div class="container">
+    <h1>Here is the data!</h1>
+    <h3>Based off the number: <span th:text="${n}"></span></h3>
+    <table class="table table-bordered">
+        <tr>
+            <td>Perimeter</td>
+            <td><span th:text="${hashmap.get('perimeter')}"></span></td>
+        </tr>
+        <tr>
+            <td>Area</td>
+            <td><span th:text="${hashmap.get('area')}"></span></td>
+        </tr>
+        <tr>
+            <td>Volume</td>
+            <td><span th:text="${hashmap.get('volume')}"></span></td>
+        </tr>
+        <tr>
+            <td>Circle Area</td>
+            <td><span th:text="${hashmap.get('circle')}"></span></td>
+        </tr>
+        <tr>
+            <td>Circumference</td>
+            <td><span th:text="${hashmap.get('circumference')}"></span></td>
+        </tr>
+        <tr>
+            <td>isPrime</td>
+            <td>
+                <span th:if="${hashmap.get('isPrime') ==0}">false</span>
+                <span th:if="${hashmap.get('isPrime') ==1}">true</span>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+
+<footer th:replace="partials/footer :: footer"></footer>
+</body>
+</html>
