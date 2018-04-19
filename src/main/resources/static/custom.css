@@ -1,5 +1,6 @@
-img{
-    width: 100%;
+html{
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 
@@ -33,13 +34,33 @@ footer > .container{
 
 /*********          IDS       ****************/
 
+#aboutMePic{
+    height: 500px;
+    width: 60%;
+}
+#homeDianePic{
+    height: 500px;
+    width: 500px;
+}
 #navbar_white{
     background-color: white;
 }
 #navbar_hr{
     border-top: solid black 2px;
-    margin: 20px 5% 0 5%;
+    margin: 20px 0 0 0;
 }
-#mainTitle{
-    /*font-family: ;*/
+#homeDescription{
+    font-family: Baskerville Old Face;
+    font-weight: 500;
+    font-size: 50px;
+    height: 500px;
+    line-height: 50px;
+}
+#homeDescription > :first-child{
+    margin-top: 45%;
+}
+#homeDescription > div {
+    font-size: 25px;
+    font-weight: normal;
+    line-height: normal;
 }

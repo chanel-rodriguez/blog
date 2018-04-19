@@ -1,11 +1,22 @@
 package com.codeup.blog.models;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "posts")
 public class Post {
+    @Id @GeneratedValue
     private long id;
+    @Column(nullable = false)
     private String title;
+    @Column(nullable = false)
     private String body;
+//    @Column(nullable = false, columnDefinition = "DEFAULT CURRENT_TIMESTAMP")
+    @Column(updatable = false)
+    @CreationTimestamp
     private Date created_on;
 
     public Post() {

@@ -13,6 +13,10 @@
         <input type="hidden" th:field="*{id}" th:value="${editPost.getId()}"/>
         <input type="submit" />
     </form>
+    <form action="/posts/delete" th:method="post" th:object="${editPost}">
+        <input type="hidden" th:field="*{id}" />
+        <input type="submit" th:value="delete"/>
+    </form>
 </div>
 
 <div th:if="!${editPost}">
