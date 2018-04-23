@@ -1,8 +1,10 @@
 package com.codeup.blog.controllers;
 
 import com.codeup.blog.models.Post;
+import com.codeup.blog.models.User;
 import com.codeup.blog.repositories.PostRepository;
 import com.codeup.blog.services.PostService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +39,8 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String postCreateForm(@ModelAttribute Post post){
+        User curUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(curUser.getUsername());
         postDao.save(post);
         return "redirect:/posts";
     }
