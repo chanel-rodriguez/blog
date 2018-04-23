@@ -11,11 +11,9 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class PostController {
 
-    private PostService postSvc;
     private PostRepository postDao;
 
-    public PostController(PostService postSvc, PostRepository postDao) {
-        this.postSvc = postSvc;
+    public PostController(PostRepository postDao) {
         this.postDao = postDao;
     }
 

@@ -25,6 +25,12 @@
     <input type="text" th:field="*{title}"/> <br />
     Body:
     <input type="text" th:field="*{body}"/> <br />
+    Category:
+    <select th:field="*{type}">
+        <option value="short_story">Short Story</option>
+        <option value="personal_narrative">Personal Narrative</option>
+        <option value="book_club">Book Club</option>
+    </select>
     <input type="submit" />
 </form>
 </div>

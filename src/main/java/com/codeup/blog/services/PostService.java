@@ -15,9 +15,9 @@ public class PostService {
         createPosts();
     }
     private void createPosts() {
-        posts.add(new Post(1,"Some Post","this is something about something that i wrote"));
-        posts.add(new Post(2,"Somewhere Post","this is something about something that i wrote when i was in somewhere"));
-        posts.add(new Post(3,"Today","It is wednesday and I had to go on base today!"));
+//        posts.add(new Post(1,"Some Post","this is something about something that i wrote"));
+//        posts.add(new Post(2,"Somewhere Post","this is something about something that i wrote when i was in somewhere"));
+//        posts.add(new Post(3,"Today","It is wednesday and I had to go on base today!"));
     }
 
         public Post singlePost(long index){

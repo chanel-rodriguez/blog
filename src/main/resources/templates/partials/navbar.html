@@ -3,20 +3,55 @@
 <head th:replace="partials :: header"> </head>
 <body>
 <div class="container-fluid" th:fragment="navbar">
-    <h1 class="text-center  ">diane lizette</h1>
+    <h1 id="navbarTitle" class="text-center">Diane Lizette</h1>
     <hr id="navbar_hr"/>
     <ul class="nav navbar-nav">
         <li role="presentation"><a href="/home">Home</a></li>
         <li role="presentation"><a href="/aboutme">About</a></li>
-        <li role="presentation"><a href="#">Short Stories</a></li>
-        <li role="presentation"><a href="#">Personal Narratives</a></li>
-        <li role="presentation"><a href="#">Book Club</a></li>
+        <li role="presentation"><a href="/shortstories">Short Stories</a></li>
+        <li role="presentation"><a href="/personalnarrative">Personal Narratives</a></li>
+        <li role="presentation"><a href="/bookclub">Book Club</a></li>
+        <li role="presentation"><a href="#" class="login">Login</a></li>
     </ul>
+
+
+<!--########################          MODAL         ##############################  -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Login Here <input type="button" class="registerButton pull-right" value="Register"/></h4>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" th:action="@{/user/login}" th:method="post" th:object="${user}">
+                    Email:
+                    <input type="text" placeholder="enter email"/> <br/>
+                    Password:
+                    <input type="password" placeholder="enter password"/> <br/>
+                    <input type="submit" th:value="Submit"/>
+                </form>
+                <form id="registerForm" class="hideForm" th:action="@{/user/create}" th:method="post">
+                    FirstName:
+                    <input type="text" name="firstName" placeholder="enter First Name"/> <br/>
+                    LastName:
+                    <input type="text" name="lastName" placeholder="enter Last Name"/> <br/>
+                    Email:
+                    <input type="text" name="email" placeholder="enter email"/> <br/>
+                    Password:
+                    <input type="password" name="password" placeholder="enter password"/> <br/>
+                    <input type="submit" th:value="Submit"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>

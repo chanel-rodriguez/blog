@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Scripts')"> </head>
+<body>
+<div th:fragment="script">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        "use strict";
+
+        $('.login').click(function (e) {
+            e.preventDefault();
+            console.log("hi!");
+            $('#loginModal').modal('show');
+        })
+
+        $('.registerButton').click(function(event) {
+            $('#loginForm').toggle();
+            $('#registerForm').toggle();
+        })
+
+        var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+        $('.dateP').each(function (index) {
+            var d =new Date($(this).text());
+            $(this).next().text(months[d.getMonth()] +" "+ d.getDate() +", "+ d.getFullYear())
+        })
+
+
+    </script>
+</div>
+</body>
+</html>
