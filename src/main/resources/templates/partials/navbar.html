@@ -18,6 +18,7 @@
                 <button>Logout</button>
             </form>
         </li>
+        <li role="presentation" sec:authorize="isAuthenticated()"><span th:text="${#authentication.principal.username}"/></li>
     </ul>
 
 
