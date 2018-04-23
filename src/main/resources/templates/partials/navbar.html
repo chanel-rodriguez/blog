@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="partials :: header"> </head>
 <body>
 <div class="container-fluid" th:fragment="navbar">
@@ -12,6 +12,12 @@
         <li role="presentation"><a href="/personalnarrative">Personal Narratives</a></li>
         <li role="presentation"><a href="/bookclub">Book Club</a></li>
         <li role="presentation"><a href="#" class="login">Login</a></li>
+        <li role="presentation" sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" th:method="post">
+                <!--<a href="#" class="login">Logout</a>-->
+                <button>Logout</button>
+            </form>
+        </li>
     </ul>
 
 
@@ -36,6 +42,8 @@
                     <input type="text" name="firstName" placeholder="enter First Name"/> <br/>
                     LastName:
                     <input type="text" name="lastName" placeholder="enter Last Name"/> <br/>
+                    UserName:
+                    <input type="text" name="userName" placeholder="enter UserName"/> <br/>
                     Email:
                     <input type="text" name="email" placeholder="enter email"/> <br/>
                     Password:
