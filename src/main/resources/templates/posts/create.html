@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header('Home Page')"> </head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="partials/header :: header('Create Blog')"> </head>
 <body>
 
+<div th:replace="partials/navbar :: navbar"></div>
 
 <div th:if="${editPost}">
     <form th:action="@{/posts/edit}" th:method="post" th:object="${editPost}">
         Title:
         <input type="text" th:field="*{title}" th:value="${editPost.getTitle()}"/> <br />
         Body:
-        <input type="text" th:field="*{body}" th:value="${editPost.getBody()}"/> <br />
+        <textarea rows="10" th:field="*{body}" th:value="${editPost.getBody()}"></textarea> <br />
         <input type="hidden" th:field="*{id}" th:value="${editPost.getId()}"/>
         <input type="submit" />
     </form>
@@ -24,7 +25,7 @@
     Title:
     <input type="text" th:field="*{title}"/> <br />
     Body:
-    <input type="text" th:field="*{body}"/> <br />
+    <textarea rows="10" th:field="*{body}"></textarea> <br />
     Category:
     <select th:field="*{type}">
         <option value="short_story">Short Story</option>
@@ -34,5 +35,8 @@
     <input type="submit" />
 </form>
 </div>
+
+<footer th:replace="partials/footer :: footer"></footer>
+<div th:replace="partials/scripts :: script"></div>
 </body>
 </html>
