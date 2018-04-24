@@ -4,11 +4,6 @@
 <body>
 
 <h1>This is where we show all the posts!</h1>
-    <div class="blogPost" th:each="post: ${posts}">
-        <h2 th:text="${post.getTitle()}"></h2>
-        <p th:text="${post.getBody()}"></p>
-        <p th:text="${post.type}"></p>
-        <p th:text="${post.getCreated_on()}"></p>
-    </div>
+    <div th:replace="partials/master :: blogLayout"></div>
 </body>
 </html>

@@ -23,11 +23,13 @@
 <div th:if="!${editPost}">
 <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
     Title:
-    <input type="text" th:field="*{title}"/> <br />
+    <input type="text" th:field="*{title}"/>
+    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" /> <br />
     Body:
-    <textarea rows="10" th:field="*{body}"></textarea> <br />
+    <textarea rows="10" th:field="*{body}"></textarea>
+    <p th:if="${#fields.hasErrors('body')}" th:errors="*{body}" /><br />
     Category:
-    <select th:field="*{type}">
+    <select th:field="*{categories}" multiple="multiple">
         <option value="short_story">Short Story</option>
         <option value="personal_narrative">Personal Narrative</option>
         <option value="book_club">Book Club</option>

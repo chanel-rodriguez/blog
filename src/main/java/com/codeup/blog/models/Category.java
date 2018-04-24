@@ -1,16 +1,21 @@
 package com.codeup.blog.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categories")
 public class Category {
 
     @Id @GeneratedValue
-    private Long id;
+    private long id;
 
     @Column(nullable = false)
     private String name;
+
+    @ManyToMany(mappedBy = "categories")
+    private List<Post> posts;
+
 
     public Category(String name) {
         this.name = name;

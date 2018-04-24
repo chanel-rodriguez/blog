@@ -10,7 +10,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 
 @Controller
@@ -47,10 +50,13 @@ public class PostController {
     }
 
     @PostMapping("/posts/create")
-    public String postCreateForm(@ModelAttribute Post post){
+    public String postCreateForm(@Valid Post post, Errors validation, Model model){
         User curUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
+        if (validation.hasErrors()) {
+            model.addAttribute("errors", validation);
+            model.addAttribute("post", post);
+            return "/posts/create";
+        }
         System.out.println(curUser.getEmail());
         System.out.println(curUser.getFirstName());
         System.out.println(curUser.getId());

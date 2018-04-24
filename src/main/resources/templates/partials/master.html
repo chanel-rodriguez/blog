@@ -7,9 +7,11 @@
 <div class="blogPost" th:each="post: ${posts}" th:fragment="blogLayout">
     <h2 th:text="${post.getTitle()}"></h2>
     <p th:text="${post.getBody()}"></p>
-    <p th:text="${post.type}"></p>
     <p class="dateP hideForm" th:text="${post.getCreated_on()}"></p>
     <p class="showDate">test</p>
+    <ul>
+        <li th:each="category : ${post.categories}" th:text="${category.name}" />
+    </ul>
 </div>
 
 </body>
