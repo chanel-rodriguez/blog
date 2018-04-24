@@ -11,6 +11,4 @@ import java.util.List;
 @Repository
 public interface PostRepository extends CrudRepository <Post, Long> {
 
-    @Query(value = "select * from posts where type = ?1", nativeQuery = true)
-    List<Post> findByType(String type);
 }

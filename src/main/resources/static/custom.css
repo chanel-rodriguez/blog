@@ -39,6 +39,10 @@ footer > .container{
 .hideForm{
     display: none;
 }
+.formField{
+    width: 100%;
+}
+
 /*********          IDS       ****************/
 
 #aboutMePic{
@@ -74,4 +78,11 @@ footer > .container{
     font-size: 25px;
     font-weight: normal;
     line-height: normal;
+}
+#categoryBox{
+    width: 150px;
+    height: 100px;
+}
+#categoryBox > option{
+    margin-bottom: 5px;
 }

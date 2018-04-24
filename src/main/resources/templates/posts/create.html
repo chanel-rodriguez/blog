@@ -4,38 +4,40 @@
 <body>
 
 <div th:replace="partials/navbar :: navbar"></div>
+<div class="container">
 
-<div th:if="${editPost}">
-    <form th:action="@{/posts/edit}" th:method="post" th:object="${editPost}">
-        Title:
-        <input type="text" th:field="*{title}" th:value="${editPost.getTitle()}"/> <br />
-        Body:
-        <textarea rows="10" th:field="*{body}" th:value="${editPost.getBody()}"></textarea> <br />
-        <input type="hidden" th:field="*{id}" th:value="${editPost.getId()}"/>
-        <input type="submit" />
-    </form>
-    <form action="/posts/delete" th:method="post" th:object="${editPost}">
-        <input type="hidden" th:field="*{id}" />
-        <input type="submit" th:value="delete"/>
-    </form>
-</div>
-
-<div th:if="!${editPost}">
-<form th:action="@{/posts/create}" th:method="post" th:object="${post}">
-    Title:
-    <input type="text" th:field="*{title}"/>
-    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" /> <br />
-    Body:
-    <textarea rows="10" th:field="*{body}"></textarea>
-    <p th:if="${#fields.hasErrors('body')}" th:errors="*{body}" /><br />
-    Category:
-    <select th:field="*{categories}" multiple="multiple">
-        <option value="short_story">Short Story</option>
-        <option value="personal_narrative">Personal Narrative</option>
-        <option value="book_club">Book Club</option>
-    </select>
-    <input type="submit" />
-</form>
+    <div class="row">
+        <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
+           <div class="row">
+                <div class="col-md-8">
+                    Title:
+                    <input class="formField" type="text" th:field="*{title}" autofocus="autofocus"/>
+                    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" /> <br />
+                    Body:
+                    <textarea class="formField" rows="10" th:field="*{body}"></textarea>
+                    <p th:if="${#fields.hasErrors('body')}" th:errors="*{body}" /><br />
+                    <input type="hidden" th:field="*{id}"/>
+                </div>
+                <div class="col-md-4">
+                    Categories:
+                    <br/>
+                    <select id="categoryBox" th:field="*{categories}" multiple="multiple">
+                        <option value="short_story">Short Story</option>
+                        <option value="personal_narrative">Personal Narrative</option>
+                        <option value="book_club">Book Club</option>
+                        <option value="cat1">cat1</option>
+                        <option value="cat2">cat2</option>
+                        <option value="cat3">cat3</option>
+                        <option value="cat4">cat4</option>
+                        <option value="cat5">cat5</option>
+                    </select>
+                </div>
+           </div>
+            <div class="col-md-8">
+                <input class="formField btn btn-primary" type="submit" />
+            </div>
+        </form>
+    </div>
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>

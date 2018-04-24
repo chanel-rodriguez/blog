@@ -33,7 +33,7 @@
             <div class="modal-body">
                 <form id="loginForm" th:action="@{/user/login}" th:method="post">
                     Username:
-                    <input type="text" name="username" placeholder="enter Username"/> <br/>
+                    <input type="text" name="username" placeholder="enter Username" autofocus="autofocus"/> <br/>
                     Password:
                     <input type="password" name="password" placeholder="enter password"/> <br/>
                     <input type="submit" th:value="Submit"/>
