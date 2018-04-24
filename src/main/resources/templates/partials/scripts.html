@@ -19,6 +19,11 @@
             $('#registerForm').toggle();
         })
 
+        $('.logout-link').click(function (e) {
+            e.preventDefault();
+            $('.logout-form').submit();
+        })
+
         var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
         var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
